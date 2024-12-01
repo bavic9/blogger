@@ -4,22 +4,25 @@ import Image from "next/image";
 
 
 const getData = async (slug) => {
-    const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
-      cache: "no-store",
-    });
-  
+    const res = await fetch(
+        // `http://localhost:3000/api/posts/${slug}`,
+        `${process.env.NEXTAUTH_URL}/api/posts/${slug}`,
+        {
+            cache: "no-store",
+        });
+
     if (!res.ok) {
-      throw new Error("Failed");
+        throw new Error("Failed");
     }
-  
+
     return res.json();
-  };
-  
-  const SinglePage = async ({ params }) => {
+};
+
+const SinglePage = async ({ params }) => {
     const { slug } = params;
-  
+
     const data = await getData(slug);
-  
+
 
     console.log(data);
 
@@ -52,9 +55,9 @@ const getData = async (slug) => {
             </div>
             <div className="lg:flex gap-12 mt-5 justify-between">
                 <div className=" lg:w-[70%] mt-14">
-                    <div className="" dangerouslySetInnerHTML={{ __html: data?.desc }} /> 
+                    <div className="" dangerouslySetInnerHTML={{ __html: data?.desc }} />
                     <div>
-                        <Comments postSlug={slug}/>
+                        <Comments postSlug={slug} />
                     </div>
                 </div>
                 <Menu />

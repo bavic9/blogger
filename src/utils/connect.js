@@ -2,9 +2,9 @@
 
 import { PrismaClient } from "@prisma/client";
 
-const nextAuthUrl = process.env.NODE_ENV === 'production'
-  ? process.env.NEXTAUTH_URL
-  : process.env.NEXTAUTH_URL_DEV;
+// const nextAuthUrl = process.env.NODE_ENV === 'production'
+//   ? process.env.NEXTAUTH_URL
+//   : process.env.NEXTAUTH_URL_DEV;
 
 let prisma
 if (process.env.NODE_ENV === 'production') {
@@ -16,5 +16,5 @@ if (process.env.NODE_ENV === 'production') {
   prisma = global.prisma
 }
 
-export { nextAuthUrl }
+// export { nextAuthUrl }
 export default prisma

@@ -24,8 +24,23 @@ const Comments = ({ postSlug }) => {
 
     const { status } = useSession();
 
+
+    // const baseUrl = process.env.NODE_ENV === "development"
+    //     ? "http://localhost:3000"
+    //     : "https://ngt76s88-3000.uks1.devtunnels.ms";
+
+    // const { data, mutate, isLoading } = useSWR(
+    //     `${baseUrl}/api/comments?postSlug=${postSlug}`,
+    //     // `http://localhost:3000/api/comments?postSlug=${postSlug}`,
+    //     fetcher
+    // );
+
+
+    // switch the links for local development
     const { data, mutate, isLoading } = useSWR(
-        `http://localhost:3000/api/comments?postSlug=${postSlug}`,
+        process.env.NODE_ENV === "development"
+            ? `https://ngt76s88-3000.uks1.devtunnels.ms/api/comments?postSlug=${postSlug}`
+            : `http://localhost:3000/api/comments?postSlug=${postSlug}`,
         fetcher
     );
 
