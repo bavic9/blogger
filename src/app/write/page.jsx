@@ -2,16 +2,16 @@
 import React from 'react';
 import Image from "next/image";
 import { useState } from "react";
-import ReactQuill from 'react-quill';
+// import ReactQuill from 'react-quill';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import "react-quill/dist/quill.bubble.css";
+// import "react-quill/dist/quill.bubble.css";
 
 const WritePage = () => {
 
   const [file, setFile] = useState(null);
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
 
   const { status } = useSession();
 
@@ -61,13 +61,13 @@ const WritePage = () => {
             </button>
           </div>
         )}
-        <ReactQuill
+        {/* <ReactQuill
           className='w-full'
           theme="bubble"
           value={value}
           onChange={setValue}
           placeholder="Tell your story..."
-        />
+        /> */}
       </div>
       <button className='absolute lg:top-[37px] top-[100px]  right-6 py-2 px-5 border-none bg-[#1a8917] text-white cursor-pointer rounded-3xl'>Publish</button>
     </div>
