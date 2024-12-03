@@ -39,7 +39,7 @@ const Comments = ({ postSlug }) => {
     // switch the links for local development
     const { data, mutate, isLoading } = useSWR(
         process.env.NODE_ENV === "development"
-            ? `https://ngt76s88-3000.uks1.devtunnels.ms/api/comments?postSlug=${postSlug}`
+            ? `https://blogger-omega-lovat.vercel.app/api/comments?postSlug=${postSlug}`
             : `http://localhost:3000/api/comments?postSlug=${postSlug}`,
         fetcher
     );
